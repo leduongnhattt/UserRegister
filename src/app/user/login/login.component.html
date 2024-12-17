@@ -1,0 +1,19 @@
+<div class="mb-5">
+  <h2 class="text-success text-center">Sign In</h2>
+  <div>Already have an account?
+    <a routerLink="/user/signup" class="text-decoration-none fw-medium text-sucess d-inlin-block">Sign Up</a>
+  </div>
+</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="mb-4">
+    <input type="email" class="form-control bg-body-secondary" placeholder="Email" formControlName="email">
+    <div class="text-danger" *ngIf="hasDislayableError('email') && form.controls.email.hasError('required')">Please enter your email</div>
+  </div>
+  <div class="mb-4">
+    <input type="password" class="form-control bg-body-secondary" placeholder="Password" formControlName="password">
+    <div class="text-danger" *ngIf="hasDislayableError('password') && form.controls.password">Please enter your password</div>
+  </div>
+  <div class="mt-4">
+    <button class="btn btn-success w-100 rounded-3" type="submit">Sign in</button>
+  </div>
+</form>
